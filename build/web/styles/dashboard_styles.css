@@ -1,0 +1,40 @@
+/* This CSS file is meant to style the header and the basic content layout for the dashboard. */
+
+body {
+    font-family: helvetica;
+    margin: 0;
+}
+
+header {
+    text-align: center;
+    color: white;
+    padding-top: 10px;
+    background-color: #ff4d4d;
+}
+
+#logo {
+    height: 75px;
+    border-radius: 10px;
+}
+
+header ul {
+    list-style-type: none;
+    padding: 10px;
+    background: rgba(0,0,0,0.7);
+}
+
+header li {
+    padding: 10px;
+    display: inline;
+}
+
+a {
+    color: white;
+    text-decoration: none;
+}
+
+.content {
+    max-width: 500px;
+    margin: auto;
+    text-align: center;
+}

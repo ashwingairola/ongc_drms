@@ -1,0 +1,18 @@
+<%-- 
+    Document   : admin_header
+    Created on : Jun 14, 2017, 12:11:25 AM
+    Author     : user
+--%>
+
+<header>
+    <img src="/ongc_drms/img/logo.jpg" alt="ONGC DRMS" id="logo">
+    <h3>ONGC Data Requisition Management System</h3>
+    <h1>${param.name} (ID: ${param.userId})</h1>
+    <ul>
+        <li><a href="#">Add Users</a></li>
+        <li><a href="#">Update Users</a></li>
+        <li><a href="#">Delete Users</a></li>
+        <li><a href="#">View Profile</a></li>
+        <li><a href="LogoutServlet">Logout</a></li>
+    </ul>
+</header>

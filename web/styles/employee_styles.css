@@ -1,0 +1,29 @@
+/* This stylesheet is meant to provide the styles for the inner content for the dashboard.jsp file. */
+
+.surveyform {
+    border-radius: 10px;
+    background: #c2c2d6;
+    padding: 20px;
+    overflow-x: hidden;
+    text-align: center;
+}
+
+#listbox {
+    width: 100%;
+    overflow: auto;
+}
+
+#survey, #listbox {
+    padding: 12px 20px;
+    border: 1px solid black;
+    margin: 8px 0;
+}
+
+button {
+    border: none;
+    background: #ff4d4d;
+    color: white;
+    padding: 12px 20px;
+    cursor: pointer;
+    margin: 8px 0;
+}

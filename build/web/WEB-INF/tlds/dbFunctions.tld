@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<taglib version="2.1" xmlns="http://java.sun.com/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-jsptaglibrary_2_1.xsd">
+  <tlib-version>1.0</tlib-version>
+  <short-name>dbfunctions</short-name>
+  <uri>/WEB-INF/tlds/dbFunctions</uri>
+  <!-- A validator verifies that the tags are used correctly at JSP
+          translation time. Validator entries look like this: 
+       <validator>
+           <validator-class>com.mycompany.TagLibValidator</validator-class>
+           <init-param>
+              <param-name>parameter</param-name>
+              <param-value>value</param-value>
+           </init-param>
+       </validator>
+    -->
+  <!-- A tag library can register Servlet Context event listeners in
+         case it needs to react to such events. Listener entries look
+         like this: 
+      <listener>
+          <listener-class>com.mycompany.TagLibListener</listener-class> 
+      </listener>
+    -->
+  <function>
+      <name>getHistory</name>
+      <function-class>model.DBManager</function-class>
+      <function-signature>java.util.ArrayList getHistory(java.lang.String)</function-signature>
+  </function>
+  
+  <function>
+      <name>getApprovedRequests</name>
+      <function-class>model.DBManager</function-class>
+      <function-signature>java.util.ArrayList getApprovedRequests(java.lang.String)</function-signature>
+  </function>
+  
+  <function>
+      <name>getApproverHistory</name>
+      <function-class>model.DBManager</function-class>
+      <function-signature>java.util.ArrayList getApproverHistory(java.lang.String, java.lang.String, java.lang.String)</function-signature>
+  </function>
+  
+  <function>
+      <name>getSurveyRequests</name>
+      <function-class>model.DBManager</function-class>
+      <function-signature>java.util.ArrayList getSurveyRequests(java.lang.String, java.lang.String)</function-signature>
+  </function>
+  
+  <function>
+      <name>getDispatchableRequests</name>
+      <function-class>model.DBManager</function-class>
+      <function-signature>java.util.ArrayList getDispatchableRequests()</function-signature>
+  </function>
+</taglib>
