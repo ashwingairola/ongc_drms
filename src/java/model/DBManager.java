@@ -416,4 +416,53 @@ public class DBManager
         }
         return flag;
     }
+    
+    // Following are the methods for the ADMIN
+    
+    public static boolean addUser(String userId, String password, String firstName, String middleName, String lastName,
+            String phone, String designation, String location, String role)
+    {
+        boolean flag = false;
+        try
+        {
+            Connection con = DriverManager.getConnection(DBURL, DBUSER, DBPASSWORD);
+            PreparedStatement st = con.prepareStatement("INSERT INTO employee VALUES (?,?,?,?,?,?,?,?,?)");
+            st.setString(1, userId);
+            st.setString(2, password);
+            st.setString(3, firstName);
+            st.setString(4, middleName);
+            st.setString(5, lastName);
+            st.setString(6, phone);
+            st.setString(7, designation);
+            st.setString(8, location);
+            st.setString(9, role);
+            st.executeUpdate();
+            con.close();
+            flag = true;
+        }
+        catch(Exception e)
+        {
+            e.printStackTrace();
+        }
+        return flag;
+    }
+    
+    public static boolean deleteUser(String userId)
+    {
+        boolean flag = false;
+        try
+        {
+            Connection con = DriverManager.getConnection(DBURL, DBUSER, DBPASSWORD);
+            PreparedStatement st = con.prepareStatement("DELETE FROM employee where userid=?");
+            st.setString(1, userId);
+            st.executeUpdate();
+            con.close();
+            flag = true;
+        }
+        catch(Exception e)
+        {
+            e.printStackTrace();
+        }
+        return flag;
+    }
 }

@@ -17,7 +17,8 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <link rel="stylesheet" type="text/css" href="/ongc_drms/styles/dashboard_styles.css">
-        <title>Admin</title>
+        <link rel="stylesheet" type="text/css" href="/ongc_drms/styles/employee_styles.css">
+        <title>Admin: ${sessionScope.name}</title>
     </head>
     <body>
         <jsp:include page="../WEB-INF/jspf/admin_header.jsp">
@@ -29,18 +30,48 @@
             <h2>You may request for survey data here.</h2>
             <div class="surveyform">
                 <form id="form" action="AdminServlet" method="POST">
-                    <label>CPF Number: </label><input type="number" name="userid">
-                    <label>Password: </label><input type="password" name="password">
-                    <label>First Name: </label><input name="firstname">
-                    <label>Middle Name: </label><input name="midname">
-                    <label>Last Name: </label><input name="lastname">
-                    <label>Designation: </label><input name="designation">
-                    <label>Location: </label><input name="location">
-                    <label>Role: </label><input name="role">
+                    <table>
+                        <tr>
+                            <td><label>CPF Number: </label></td>
+                            <td><input type="number" name="userid"></td>
+                        </tr>
+                        <tr>
+                            <td><label>Password: </label></td>
+                            <td><input type="password" name="password"></td>
+                        </tr>
+                        <tr>
+                            <td><label>First Name: </label></td>
+                            <td><input name="firstname"></td>
+                        </tr>
+                        <tr>
+                            <td><label>Middle Name: </label></td>
+                            <td><input name="midname"></td>
+                        </tr>
+                        <tr>
+                            <td><label>Last Name: </label></td>
+                            <td><input name="lastname"></td>
+                        </tr>
+                        <tr>
+                            <td><label>Phone Number: </label></td>
+                            <td><input name="phone" maxlength="10"></td>
+                        </tr>
+                        <tr>
+                            <td><label>Designation: </label></td>
+                            <td><input name="designation"></td>
+                        </tr>
+                        <tr>
+                            <td><label>Location: </label></td>
+                            <td><input name="location"></td>
+                        </tr>
+                        <tr>
+                            <td><label>Role: </label></td>
+                            <td><input name="role"></td>
+                        </tr>
+                    </table>
+                    <input type="hidden" name="action" value="adduser">
                     <button type="submit">Add User</button>
                 </form>
             </div>
         </section>
-        
     </body>
 </html>

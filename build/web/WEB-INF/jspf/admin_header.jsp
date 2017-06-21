@@ -9,9 +9,9 @@
     <h3>ONGC Data Requisition Management System</h3>
     <h1>${param.name} (ID: ${param.userId})</h1>
     <ul>
-        <li><a href="#">Add Users</a></li>
+        <li><a href="/ongc_drms/admin/admin_dashboard.jsp">Add Users</a></li>
         <li><a href="#">Update Users</a></li>
-        <li><a href="#">Delete Users</a></li>
+        <li><a href="/ongc_drms/admin/delete_user.jsp">Delete Users</a></li>
         <li><a href="#">View Profile</a></li>
         <li><a href="LogoutServlet">Logout</a></li>
     </ul>
