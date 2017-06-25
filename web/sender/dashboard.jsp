@@ -31,7 +31,7 @@
         <section class="content">
             <h2>You may request for survey data here.</h2>
             <div class="surveyform">
-                <form id="form" action="SendRequestServlet" method="POST">
+                <form id="form" action="SendRequestServlet" method="POST" onsubmit="return validate()">
                     <label>Survey Name</label>
                     <input type="text" name="surveyname" id="survey"><br>
 
@@ -54,13 +54,15 @@
             
             function addSurvey()
             {
-                var survey = document.getElementById('survey');    
-                list.push(survey.value);
-
-                var listbox = document.getElementById('listbox');
-                var option = document.createElement('option');
-                option.text = survey.value;
-                listbox.add(option);
+                var survey = document.getElementById('survey').value;
+                if(survey.length !== 0)
+                {
+                    list.push(survey);                                  // Add the survey name to the array.
+                    var listbox = document.getElementById('listbox');   // Add the survey name to the select box.
+                    var option = document.createElement('option');
+                    option.text = survey;
+                    listbox.add(option);
+                }
             }
 
             function deleteSurvey()
@@ -75,6 +77,17 @@
                         break;
                     }
                 }
+            }
+            
+            function validate()
+            {
+                if(list.length === 0)
+                {
+                    window.alert("Please enter at least one survey.");
+                    return false;
+                }
+                else
+                    return true;
             }
         </script>
     </body>
