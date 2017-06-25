@@ -42,11 +42,6 @@
                     <button type="button" onclick="deleteSurvey()">Delete Survey</button>
 
                     <input type="hidden" name="userid" value="${user.userId}">
-                    <input type="hidden" name="firstname" value="${user.firstName}">
-                    <input type="hidden" name="midname" value="${user.middleName}">
-                    <input type="hidden" name="surname" value="${user.lastName}">
-                    <input type="hidden" name="phone" value="${user.phno}">
-                    <input type="hidden" name="designation" value="${user.designation}">
                     <input type="hidden" name="location" value="${user.location}">
                     
                     <button type="submit">Submit Request</button>

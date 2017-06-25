@@ -75,7 +75,7 @@ public class DBManager
         return user;
     }
     
-    public static boolean addRequest(User user, SurveyRequest surveyRequest)        // This method adds a request made by a SENDER to the request
+    public static boolean addRequest(SurveyRequest surveyRequest)        // This method adds a request made by a SENDER to the request
     {                                                                               // database.
         boolean flag = false;
         try
