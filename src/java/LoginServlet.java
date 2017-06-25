@@ -8,6 +8,10 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import model.*;
 
+/**
+ *
+ * @author Ashwin Gairola
+ */
 @WebServlet(urlPatterns = {"/LoginServlet"})
 public class LoginServlet extends HttpServlet
 {
@@ -46,7 +50,6 @@ public class LoginServlet extends HttpServlet
                 
                 request.setAttribute("userid", userid);
                 user = DBManager.getUserDetails(userid);
-                String userId = user.getUserId();
                 String firstName = user.getFirstName();
                 String middleName = user.getMiddleName();
                 String lastName = user.getLastName();
@@ -56,6 +59,8 @@ public class LoginServlet extends HttpServlet
                 view.forward(request, response);
             }
         }
+        else
+            response.sendRedirect("index.jsp");
     }
 
     @Override
