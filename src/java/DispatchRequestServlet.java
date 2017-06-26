@@ -1,4 +1,5 @@
 import java.io.IOException;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -16,8 +17,10 @@ public class DispatchRequestServlet extends HttpServlet
     {
         String requestId = request.getParameter("requestId");
         String courierId = request.getParameter("courierId");
-        System.out.println(requestId+"\t"+courierId);
         boolean flag = DBManager.dispatchRequest(requestId, courierId);
+        request.setAttribute("flag", flag);
+        RequestDispatcher view = request.getRequestDispatcher("approver/dispatch_result.jsp");
+        view.forward(request, response);
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

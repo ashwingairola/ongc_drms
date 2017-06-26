@@ -7,6 +7,10 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import model.*;
 
+/**
+ *
+ * @author Ashwin Gairola
+ */
 @WebServlet(urlPatterns = {"/SendRequestServlet"})
 public class SendRequestServlet extends HttpServlet
 {
