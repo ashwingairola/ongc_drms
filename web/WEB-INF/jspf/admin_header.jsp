@@ -10,9 +10,9 @@
     <h1>${param.name} (ID: ${param.userId})</h1>
     <ul>
         <li><a href="/ongc_drms/admin/admin_dashboard.jsp">Add Users</a></li>
-        <li><a href="#">Update Users</a></li>
+        <li><a href="/ongc_drms/admin/update_user.jsp">Update Users</a></li>
         <li><a href="/ongc_drms/admin/delete_user.jsp">Delete Users</a></li>
         <li><a href="#">View Profile</a></li>
-        <li><a href="LogoutServlet">Logout</a></li>
+        <li><a href="/ongc_drms/LogoutServlet">Logout</a></li>
     </ul>
 </header>

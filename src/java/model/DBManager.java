@@ -21,8 +21,8 @@ public class DBManager
         }
     }
     
-    public static User getUserDetails(String username)
-    {
+    public static User getUserDetails(String username)          // For fetching a complete User instance with all its instance variables given values
+    {                                                           // from the database.
         User user = null;
         try
         {
@@ -51,7 +51,7 @@ public class DBManager
         return user;
     }
     
-    public static User getUser(String userid)
+    public static User getUser(String userid)       // Only for fetching the login credentials of a user.
     {
         User user = null;
         try
@@ -455,6 +455,36 @@ public class DBManager
             Connection con = DriverManager.getConnection(DBURL, DBUSER, DBPASSWORD);
             PreparedStatement st = con.prepareStatement("DELETE FROM employee where userid=?");
             st.setString(1, userId);
+            st.executeUpdate();
+            con.close();
+            flag = true;
+        }
+        catch(Exception e)
+        {
+            e.printStackTrace();
+        }
+        return flag;
+    }
+    
+    public static boolean updateUser(String userId, String firstName, String middleName, String lastName,
+            String phone, String designation, String location, String role)
+    {
+        boolean flag = false;
+        try
+        {
+            Connection con = DriverManager.getConnection(DBURL, DBUSER, DBPASSWORD);
+            PreparedStatement st = con.prepareStatement("UPDATE employee SET firstname=?, midname=?, surname=?, "
+                    + "phone=?, designation=?, location=?, role=? WHERE userid=?");
+            
+            st.setString(1, firstName);
+            st.setString(2, middleName);
+            st.setString(3, lastName);
+            st.setString(4, phone);
+            st.setString(5, designation);
+            st.setString(6, location);
+            st.setString(7, role);
+            st.setString(8, userId);
+            
             st.executeUpdate();
             con.close();
             flag = true;

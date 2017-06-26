@@ -1,6 +1,6 @@
 <%-- 
-    Document   : delete_user
-    Created on : Jun 19, 2017, 1:23:12 AM
+    Document   : update_user
+    Created on : Jun 26, 2017, 7:00:13 AM
     Author     : Ashwin Gairola
 --%>
 
@@ -26,7 +26,7 @@
         </jsp:include>
         
         <section class="content">
-            <h2>You may request for survey data here.</h2>
+            <h1>Enter the CPF number of an employee to update.</h1>
             <div class="surveyform">
                 <form id="form" action="/ongc_drms/AdminServlet" method="POST">
                     <table>
@@ -35,8 +35,8 @@
                             <td><input type="number" name="userid"></td>
                         </tr>
                     </table>
-                    <input type="hidden" name="action" value="deleteuser">
-                    <button type="submit">Delete User</button>
+                    <input type="hidden" name="action" value="finduser">
+                    <button type="submit">Find User</button>
                 </form>
             </div>
         </section>

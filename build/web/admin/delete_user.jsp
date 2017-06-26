@@ -6,6 +6,12 @@
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
+<%
+    response.setHeader("Cache-Control", "no-cache"); //forces caches to obtain a new copy of the page from the origin server
+    response.setHeader("Cache-Control", "no-store"); //directs caches not to store the page under any circumstance
+    response.setHeader("Pragma", "no-cache"); //HTTP 1.0 backward compatibility
+    response.setDateHeader("Expires", 0); //causes the proxy cache to see the page as "stale"
+%>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -27,6 +33,7 @@
                         <tr>
                             <td><label>CPF Number: </label></td>
                             <td><input type="number" name="userid"></td>
+                        </tr>
                     </table>
                     <input type="hidden" name="action" value="deleteuser">
                     <button type="submit">Delete User</button>

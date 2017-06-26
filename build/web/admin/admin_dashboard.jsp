@@ -27,9 +27,9 @@
         </jsp:include>
         
         <section class="content">
-            <h2>You may request for survey data here.</h2>
+            <h2>You can add users here.</h2>
             <div class="surveyform">
-                <form id="form" action="AdminServlet" method="POST">
+                <form id="form" action="/ongc_drms/AdminServlet" method="POST">
                     <table>
                         <tr>
                             <td><label>CPF Number: </label></td>
