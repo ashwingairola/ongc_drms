@@ -1,6 +1,6 @@
 <%-- 
     Document   : result
-    Created on : May 24, 2017, 8:42:23 AM
+    Created on : Jun 26, 2017, 2:03:34 AM
     Author     : Ashwin Gairola
 --%>
 
@@ -31,18 +31,18 @@
         <c:choose>
             <c:when test="${requestScope.flag}">
                 <c:set var="result" value="SUCCESS!" />
-                <c:set var="message" value="Your request has been sent successfully!" />
+                <c:set var="message" value="You have successfully approved the request." />
             </c:when>
             <c:otherwise>
                 <c:set var="result" value="FAILED!" />
-                <c:set var="message" value="Your request could not be sent due to some error. Sorry about that." />
+                <c:set var="message" value="The request could not be approved due to some error. Sorry about that." />
             </c:otherwise>
         </c:choose>
         
         <section class="content">
             <h1>${result}</h1>
             <p>${message}</p>
-            <a href="/ongc_drms/sender/dashboard.jsp">Go Back</a>
+            <a href="/ongc_drms/approver/approver_dashboard.jsp">Go Back</a>
         </section>
     </body>
 </html>

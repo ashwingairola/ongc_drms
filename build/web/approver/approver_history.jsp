@@ -196,31 +196,7 @@
                             <c:set var="dateApproved" value="Yet to be approved"/>
                         </c:when>
                     </c:choose>
-                    <%-- Redundant code ends here --%>
-                    <%--
-                    <c:set var="status" value=""/>
-                    <c:choose>
-                        <c:when test="${surveyRequest.level3Approved}">
-                            <c:set var="status" value="APPROVED"/>
-                        </c:when>
-                        
-                        <c:when test="${surveyRequest.level2Approved}">
-                            <c:set var="status" value="PENDING (To be approved by HOI, GEOPIC, Dehradun)"/>
-                        </c:when>
-                        
-                        <c:when test="${surveyRequest.level1Approved}">
-                            <c:set var="status" value="PENDING (To be approved by GMS)"/>
-                        </c:when>
-                        
-                        <c:when test="${surveyRequest.rejected}">
-                            <c:set var="status" value="REJECTED"/>
-                        </c:when>
-                        
-                        <c:otherwise>
-                            <c:set var="status" value="PENDING (To be approved at your branch)"/>
-                        </c:otherwise>
-                    </c:choose>
-                    --%>
+                    
                     <li class="request" id="request${i}">
                         <section>
                             <b>Request ID:</b> <label id="requestId${i}">${surveyRequest.requestId}</label><br>

@@ -1,4 +1,5 @@
 import java.io.IOException;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -20,6 +21,9 @@ public class HandleSurveyRequestServlet extends HttpServlet
         boolean rejected = (request.getParameter("reject")!=null) ? true : false;
         
         boolean flag = DBManager.handleRequest(requestId, approved, rejected, role, approverId);
+        request.setAttribute("flag", flag);
+        RequestDispatcher view = request.getRequestDispatcher("approver/result.jsp");
+        view.forward(request, response);
     }
     
     @Override
