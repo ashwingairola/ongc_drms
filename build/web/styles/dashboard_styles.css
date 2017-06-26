@@ -28,7 +28,7 @@ header li {
     display: inline;
 }
 
-a {
+header a {
     color: white;
     text-decoration: none;
 }

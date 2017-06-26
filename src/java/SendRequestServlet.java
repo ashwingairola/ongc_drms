@@ -14,7 +14,6 @@ public class SendRequestServlet extends HttpServlet
             throws ServletException, IOException
     {   
         String requestList = request.getParameter("requestList");     //Preparing a requestList string
-        System.out.println("Requestlist: "+ request.getParameter("requestList"));
         requestList = requestList.trim();
         
         SurveyRequest surveyRequest = new SurveyRequest();      //Extracting the hidden form data to create a SurveyRequest instance
@@ -30,12 +29,9 @@ public class SendRequestServlet extends HttpServlet
         surveyRequest.setStatus("PENDING (To be approved at your branch)");
         
         boolean flag = DBManager.addRequest(surveyRequest);       //Add the survey request to the database
-        RequestDispatcher view1 = request.getRequestDispatcher("sender/test.jsp");
-        RequestDispatcher view2 = request.getRequestDispatcher("sender/fail.html");
-        if(flag)
-            view1.forward(request, response);
-        else
-            view2.forward(request, response);
+        RequestDispatcher view = request.getRequestDispatcher("sender/result.jsp");
+        request.setAttribute("flag", flag);
+        view.forward(request, response);
     }
 
     @Override
