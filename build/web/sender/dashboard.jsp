@@ -38,11 +38,12 @@
                     <button type="button" onclick="addSurvey()">Add Survey</button><br>
 
                     <label style="margin-top: 30px;">Your desired surveys will appear here:</label>
-                    <select multiple="multiple" id="listbox" name="requestlist"></select><br>
+                    <select multiple="multiple" id="listbox"></select><br>
                     <button type="button" onclick="deleteSurvey()">Delete Survey</button>
 
                     <input type="hidden" name="userid" value="${user.userId}">
                     <input type="hidden" name="location" value="${user.location}">
+                    <input type="hidden" name="requestList" id="requestList" value="">
                     
                     <button type="submit">Submit Request</button>
                 </form>
@@ -51,6 +52,7 @@
 
         <script>
             var list = new Array();
+            var requestList = document.getElementById("requestList");
             
             function addSurvey()
             {
@@ -62,6 +64,7 @@
                     var option = document.createElement('option');
                     option.text = survey;
                     listbox.add(option);
+                    requestList.setAttribute('value', list.join(', '));
                 }
             }
 
@@ -74,6 +77,7 @@
                     {
                         listbox.remove(i);
                         list.splice(i,1);
+                        requestList.setAttribute('value', list.join(', '));
                         break;
                     }
                 }
@@ -83,11 +87,11 @@
             {
                 if(list.length === 0)
                 {
-                    window.alert("Please enter at least one survey.");
+                    window.alert('Please enter at least one survey.');
                     return false;
                 }
-                else
-                    return true;
+                
+                return true;
             }
         </script>
     </body>

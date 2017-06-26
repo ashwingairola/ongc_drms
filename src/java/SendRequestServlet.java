@@ -1,5 +1,4 @@
 import java.io.IOException;
-import java.util.*;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -14,11 +13,8 @@ public class SendRequestServlet extends HttpServlet
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException
     {   
-        List<String> surveyRequests = Arrays.asList(request.getParameterValues("requestlist"));     //Preparing a requestList string
-        String requestList = "";
-        for(String element : surveyRequests)
-            requestList += element+" ";
-        
+        String requestList = request.getParameter("requestList");     //Preparing a requestList string
+        System.out.println("Requestlist: "+ request.getParameter("requestList"));
         requestList = requestList.trim();
         
         SurveyRequest surveyRequest = new SurveyRequest();      //Extracting the hidden form data to create a SurveyRequest instance
