@@ -12,6 +12,14 @@
         <servlet-name>AdminServlet</servlet-name>
         <servlet-class>AdminServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>LoginRedirectServlet</servlet-name>
+        <servlet-class>LoginRedirectServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>RedirectServlet</servlet-name>
+        <servlet-class>RedirectServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>LogoutServlet</servlet-name>
         <url-pattern>/LogoutServlet</url-pattern>
@@ -23,6 +31,14 @@
     <servlet-mapping>
         <servlet-name>AdminServlet</servlet-name>
         <url-pattern>/AdminServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>LoginRedirectServlet</servlet-name>
+        <url-pattern>/LoginRedirectServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>RedirectServlet</servlet-name>
+        <url-pattern>/RedirectServlet</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

@@ -29,7 +29,7 @@
         </jsp:include>
         
         <c:choose>
-            <c:when test="${requestScope.flag}">
+            <c:when test="${sessionScope.flag}">
                 <c:set var="result" value="SUCCESS!" />
                 <c:set var="message" value="Your request has been sent successfully!" />
             </c:when>

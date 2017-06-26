@@ -31,7 +31,7 @@
         <section class="content">
             <h2>You may request for survey data here.</h2>
             <div class="surveyform">
-                <form id="form" action="SendRequestServlet" method="POST" onsubmit="return validate()">
+                <form id="form" action="/ongc_drms/SendRequestServlet" method="POST" onsubmit="return validate()">
                     <label>Survey Name</label>
                     <input type="text" name="surveyname" id="survey"><br>
 

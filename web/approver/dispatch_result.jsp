@@ -23,13 +23,13 @@
         <link rel="stylesheet" type="text/css" href="/ongc_drms/styles/employee_styles.css">
     </head>
     <body>
-        <jsp:include page="../WEB-INF/jspf/header.jsp">
+        <jsp:include page="../WEB-INF/jspf/approver2_header.jsp">
             <jsp:param name="name" value="${sessionScope.name}" />
             <jsp:param name="userId" value="${user.userId}" />
         </jsp:include>
         
         <c:choose>
-            <c:when test="${requestScope.flag}">
+            <c:when test="${sessionScope.flag}">
                 <c:set var="result" value="SUCCESS!" />
                 <c:set var="message" value="You have successfully dispatched the request." />
             </c:when>

@@ -25,7 +25,8 @@ public class HandleSurveyRequestServlet extends HttpServlet
         
         boolean flag = DBManager.handleRequest(requestId, approved, rejected, role, approverId);
         request.setAttribute("flag", flag);
-        RequestDispatcher view = request.getRequestDispatcher("approver/result.jsp");
+        request.setAttribute("destination", "approver/result.jsp");
+        RequestDispatcher view = request.getRequestDispatcher("RedirectServlet");
         view.forward(request, response);
     }
     

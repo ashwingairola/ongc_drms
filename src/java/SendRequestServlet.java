@@ -33,8 +33,10 @@ public class SendRequestServlet extends HttpServlet
         surveyRequest.setStatus("PENDING (To be approved at your branch)");
         
         boolean flag = DBManager.addRequest(surveyRequest);       //Add the survey request to the database
-        RequestDispatcher view = request.getRequestDispatcher("sender/result.jsp");
         request.setAttribute("flag", flag);
+        request.setAttribute("destination", "sender/result.jsp");
+        
+        RequestDispatcher view = request.getRequestDispatcher("RedirectServlet");
         view.forward(request, response);
     }
 
