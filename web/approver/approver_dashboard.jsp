@@ -65,6 +65,7 @@
                     <jsp:param name="name" value="${sessionScope.name}"/>
                     <jsp:param name="userId" value="${user.userId}"/>
                 </jsp:include>
+                <c:set var="approveoption" value="Approve" />
             </c:when>
             
             <c:when test="${user.role eq 'approver2'}">
@@ -72,6 +73,7 @@
                     <jsp:param name="name" value="${sessionScope.name}"/>
                     <jsp:param name="userId" value="${user.userId}"/>
                 </jsp:include>
+                <c:set var="approveoption" value="Forward" />
             </c:when>
         </c:choose>
         <section class="content">
@@ -89,7 +91,7 @@
                                 <input type="hidden" name="request_id" value="${surveyRequest.requestId}">
                                 <input type="hidden" name="role" value="${user.role}">
                                 <input type="hidden" name="approver_id" value="${user.userId}">
-                                <button type="submit" name="approve" value="approve" class="approve">Approve</button>
+                                <button type="submit" name="approve" value="approve" class="approve">${approveoption}</button>
                                 <button type="submit" name="reject" value="reject" class="reject">Reject</button>
                             </form>
                         </section>
