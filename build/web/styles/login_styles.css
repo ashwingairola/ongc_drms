@@ -1,6 +1,8 @@
  body
 {
-    background-color: #ff4d4d;
+    background-image: url("../img/login_img.jpg");
+    background-size: cover;
+    background-position: center;
     font-family: helvetica;
     margin: 20px auto;
     max-width: 80%;
@@ -12,42 +14,10 @@ header
     color: white;
 }
 
-header *
-{
-    display: inline;
-}
-
 img
 {
     height: 100px;
-}
-
-.mainbuttons
-{
-    display: inline;
-}
-
-.mainbuttons button
-{
-    color: white;
-    padding: 10px;
-    font-family: helvetica;
-    font-size: 16px;
-    border: none;
-    border-radius: 5px;
-    box-shadow: 2px 2px 5px black;
-    cursor: pointer;
-}
-
-#employee
-{
-    background-color: #4caf50;
-    margin-right: 10px;
-}
-
-#admin
-{
-    background-color: blue;
+    border-radius: 10px;
 }
 
 section
@@ -55,40 +25,10 @@ section
     text-align: center;
 }
 
-.modal
+#loginform
 {
-    display: none;
-    position: fixed;
-    z-index: 1;
-    left: 0;
-    top: 0;
-    height: 100%;
-    width: 100%;
-    overflow: auto;
-    background-color: rgba(0,0,0,0.4);
-    padding-top: 60px;
-}
-
-.modal-content
-{
-    background-color: #fefefe;
-    margin: 5% auto 15% auto;
-    border: 1px solid #888888;
-    width: 50%;
-}
-
-.close
-{
-    float: right;
-    color: #000000;
-    font-size: 25px;
-    font-weight: bold;
-}
-
-.close:hover, .close:focus
-{
-    color: red;
-    cursor: pointer;
+    max-width: 50%;
+    margin: 0 auto;
 }
 
 form
@@ -106,9 +46,9 @@ input[type=text], input[type=password]
     box-sizing: border-box;
 }
 
-#empbutton, #adminbutton
+form button
 {
-    background-color: #4caf50;
+    background-color: #ff4d4d;
     border: none;
     padding: 12px 20px;
     margin:8px 0;
@@ -122,28 +62,31 @@ input[type=text], input[type=password]
     padding: 16px;
 }
 
-#maintitle
+h1
 {
     color: white;
     font-size: 30px;
     font-weight: bold;
 }
 
-/* Animations */
-.animate
-{
-    -webkit-animation: animatezoom 0.6s;
-    animation: animatezoom 0.6s;
+form label {
+    color: white;
 }
 
-@-webkit-keyframes animatezoom
+@media screen and (max-width: 768px)
 {
-    from {-webkit-transform: scale(0)} 
-    to {-webkit-transform: scale(1)}
-}
-
-@keyframes animatezoom
-{
-    from {transform: scale(0)} 
-    to {transform: scale(1)}
+    body
+    {
+        background-size: inherit;
+    }
+    
+    header h1, section h1 {
+        font-size: 25px;
+    }
+    
+    #loginform
+    {
+        max-width: 100%;
+        margin: 0;
+    }
 }

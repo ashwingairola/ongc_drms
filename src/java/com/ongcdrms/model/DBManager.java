@@ -5,11 +5,7 @@ import java.util.*;
 import com.ongcdrms.DatabaseContextListener;
 
 public class DBManager
-{
-//    private static final String DBURL = "jdbc:mysql://localhost:3306/ongc_drms";
-//    private static final String DBUSER = "root";
-//    private static final String DBPASSWORD = "password";
-    
+{   
     private static String dbUrl, dbUser, dbPassword;
     
     static
