@@ -1,37 +1,29 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+package com.ongcdrms;
 
 import java.io.IOException;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
+import com.ongcdrms.model.DBManager;
 
 /**
  *
  * @author Ashwin Gairola
  */
-public class RedirectServlet extends HttpServlet
+public class DispatchRequestServlet extends HttpServlet
 {
-    /**
-     * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
-     * methods.
-     *
-     * @param request servlet request
-     * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
-     */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException
     {
-        HttpSession session = request.getSession();
-        session.setAttribute("flag", request.getAttribute("flag"));
-        response.sendRedirect(request.getAttribute("destination").toString());
+        String requestId = request.getParameter("requestId");
+        String courierId = request.getParameter("courierId");
+        boolean flag = DBManager.dispatchRequest(requestId, courierId);
+        request.setAttribute("flag", flag);
+        request.setAttribute("destination", "approver/dispatch_result.jsp");
+        RequestDispatcher view = request.getRequestDispatcher("RedirectServlet");
+        view.forward(request, response);
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

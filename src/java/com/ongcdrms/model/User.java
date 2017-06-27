@@ -1,4 +1,4 @@
-package model;
+package com.ongcdrms.model;
 
 public class User
 {

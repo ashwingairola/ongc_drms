@@ -1,4 +1,4 @@
-package model;
+package com.ongcdrms.model;
 
 import java.util.Date;
 

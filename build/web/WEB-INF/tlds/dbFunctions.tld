@@ -21,32 +21,28 @@
       </listener>
     -->
   <function>
-      <name>getHistory</name>
-      <function-class>model.DBManager</function-class>
-      <function-signature>java.util.ArrayList getHistory(java.lang.String)</function-signature>
+    <name>getHistory</name>
+    <function-class>com.ongcdrms.model.DBManager</function-class>
+    <function-signature>java.util.ArrayList getHistory(java.lang.String)</function-signature>
   </function>
-  
   <function>
-      <name>getApprovedRequests</name>
-      <function-class>model.DBManager</function-class>
-      <function-signature>java.util.ArrayList getApprovedRequests(java.lang.String)</function-signature>
+    <name>getApprovedRequests</name>
+    <function-class>com.ongcdrms.model.DBManager</function-class>
+    <function-signature>java.util.ArrayList getApprovedRequests(java.lang.String)</function-signature>
   </function>
-  
   <function>
-      <name>getApproverHistory</name>
-      <function-class>model.DBManager</function-class>
-      <function-signature>java.util.ArrayList getApproverHistory(java.lang.String, java.lang.String, java.lang.String)</function-signature>
+    <name>getApproverHistory</name>
+    <function-class>com.ongcdrms.model.DBManager</function-class>
+    <function-signature>java.util.ArrayList getApproverHistory(java.lang.String, java.lang.String, java.lang.String)</function-signature>
   </function>
-  
   <function>
-      <name>getSurveyRequests</name>
-      <function-class>model.DBManager</function-class>
-      <function-signature>java.util.ArrayList getSurveyRequests(java.lang.String, java.lang.String)</function-signature>
+    <name>getSurveyRequests</name>
+    <function-class>com.ongcdrms.model.DBManager</function-class>
+    <function-signature>java.util.ArrayList getSurveyRequests(java.lang.String, java.lang.String)</function-signature>
   </function>
-  
   <function>
-      <name>getDispatchableRequests</name>
-      <function-class>model.DBManager</function-class>
-      <function-signature>java.util.ArrayList getDispatchableRequests()</function-signature>
+    <name>getDispatchableRequests</name>
+    <function-class>com.ongcdrms.model.DBManager</function-class>
+    <function-signature>java.util.ArrayList getDispatchableRequests()</function-signature>
   </function>
 </taglib>

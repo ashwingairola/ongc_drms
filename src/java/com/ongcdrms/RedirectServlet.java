@@ -1,3 +1,5 @@
+package com.ongcdrms;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -10,14 +12,13 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-import model.User;
 
 /**
  *
  * @author Ashwin Gairola
  */
-public class LoginRedirectServlet extends HttpServlet {
-
+public class RedirectServlet extends HttpServlet
+{
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
      * methods.
@@ -30,15 +31,9 @@ public class LoginRedirectServlet extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException
     {
-        User user = (User)request.getAttribute("user");
-        String name = request.getAttribute("name").toString();
-        String destination = request.getAttribute("destination").toString();
-        
         HttpSession session = request.getSession();
-        session.setAttribute("user", user);
-        session.setAttribute("name", name);
-        
-        response.sendRedirect(destination);
+        session.setAttribute("flag", request.getAttribute("flag"));
+        response.sendRedirect(request.getAttribute("destination").toString());
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

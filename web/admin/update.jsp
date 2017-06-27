@@ -12,7 +12,7 @@
     response.setHeader("Pragma", "no-cache"); //HTTP 1.0 backward compatibility
     response.setDateHeader("Expires", 0); //causes the proxy cache to see the page as "stale"
 %>
-<jsp:useBean id="update_user" class="model.User" scope="request" />
+<jsp:useBean id="update_user" class="com.ongcdrms.model.User" scope="request" />
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">

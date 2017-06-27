@@ -6,7 +6,7 @@
 
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@taglib prefix="dbFunctions" uri="/WEB-INF/tlds/dbFunctions"%>
-<%@page contentType="text/html" pageEncoding="UTF-8" import="model.*, java.util.*"%>
+<%@page contentType="text/html" pageEncoding="UTF-8" import="com.ongcdrms.model.*, java.util.*"%>
 <!DOCTYPE html>
 <%
     response.setHeader("Cache-Control", "no-cache"); //forces caches to obtain a new copy of the page from the origin server
@@ -14,7 +14,7 @@
     response.setHeader("Pragma", "no-cache"); //HTTP 1.0 backward compatibility
     response.setDateHeader("Expires", 0); //causes the proxy cache to see the page as "stale"
 %>
-<jsp:useBean id="user" class="model.User" scope="session"/>
+<jsp:useBean id="user" class="com.ongcdrms.model.User" scope="session"/>
 <html>
     <head>
         <title>User-ONGC DRMS</title>

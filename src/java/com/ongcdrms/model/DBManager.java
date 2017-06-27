@@ -1,19 +1,25 @@
-package model;
+package com.ongcdrms.model;
 
 import java.sql.*;
 import java.util.*;
+import com.ongcdrms.DatabaseContextListener;
 
 public class DBManager
 {
-    private static final String DBURL = "jdbc:mysql://localhost:3306/ongc_drms";
-    private static final String DBUSER = "root";
-    private static final String DBPASSWORD = "password";
+//    private static final String DBURL = "jdbc:mysql://localhost:3306/ongc_drms";
+//    private static final String DBUSER = "root";
+//    private static final String DBPASSWORD = "password";
+    
+    private static String dbUrl, dbUser, dbPassword;
     
     static
     {
         try
         {
             Class.forName("com.mysql.jdbc.Driver");
+            dbUrl = DatabaseContextListener.dbUrl;
+            dbUser = DatabaseContextListener.dbUser;
+            dbPassword = DatabaseContextListener.dbPassword;
         }
         catch(Exception e)
         {
@@ -26,7 +32,7 @@ public class DBManager
         User user = null;
         try
         {
-            Connection con = DriverManager.getConnection(DBURL, DBUSER, DBPASSWORD);
+            Connection con = DriverManager.getConnection(dbUrl, dbUser, dbPassword);
             PreparedStatement st = con.prepareStatement("SELECT * FROM employee WHERE userid=?");
             st.setString(1, username);
             ResultSet rs = st.executeQuery();
@@ -56,7 +62,7 @@ public class DBManager
         User user = null;
         try
         {
-            Connection con = DriverManager.getConnection(DBURL, DBUSER, DBPASSWORD);
+            Connection con = DriverManager.getConnection(dbUrl, dbUser, dbPassword);
             PreparedStatement st = con.prepareStatement("SELECT passwd, role FROM employee where userid=?");
             st.setString(1, userid);
             ResultSet rs = st.executeQuery();
@@ -80,7 +86,7 @@ public class DBManager
         boolean flag = false;
         try
         {
-            Connection con = DriverManager.getConnection(DBURL, DBUSER, DBPASSWORD);
+            Connection con = DriverManager.getConnection(dbUrl, dbUser, dbPassword);
             PreparedStatement st = con.prepareStatement("INSERT INTO request"
                     + "(request_id, userid, location, request_list, date_issued, status)"
                     + " VALUES(?,?,?,?,?,?)");
@@ -107,7 +113,7 @@ public class DBManager
         SurveyRequest surveyRequest = null;
         try
         {
-            Connection con = DriverManager.getConnection(DBURL, DBUSER, DBPASSWORD);
+            Connection con = DriverManager.getConnection(dbUrl, dbUser, dbPassword);
             
             String sql, levelApproved;
             if(role.equalsIgnoreCase("approver1"))
@@ -207,7 +213,7 @@ public class DBManager
             String query = "UPDATE request SET " + levelApproved + "=true, " + dateApproved + "=?, " +
                     approverId + "=?, status=? WHERE request_id=?";
             
-            Connection con = DriverManager.getConnection(DBURL, DBUSER, DBPASSWORD);
+            Connection con = DriverManager.getConnection(dbUrl, dbUser, dbPassword);
             PreparedStatement st = con.prepareStatement(query);
             st.setDate(1, new java.sql.Date(new java.util.Date().getTime()));
             st.setString(2, userId);
@@ -233,7 +239,7 @@ public class DBManager
             String query = "UPDATE request SET " + levelApproved + "=true, "
                     + approverId + "=?, status=? WHERE request_id=?";
             
-            Connection con = DriverManager.getConnection(DBURL, DBUSER, DBPASSWORD);
+            Connection con = DriverManager.getConnection(dbUrl, dbUser, dbPassword);
             PreparedStatement st = con.prepareStatement(query);
             st.setString(1, userId);
             st.setString(2, status);
@@ -254,7 +260,7 @@ public class DBManager
         ArrayList<SurveyRequest> history = null;
         try
         {
-            Connection con = DriverManager.getConnection(DBURL, DBUSER, DBPASSWORD);
+            Connection con = DriverManager.getConnection(dbUrl, dbUser, dbPassword);
             PreparedStatement st = con.prepareStatement("SELECT * FROM request WHERE userid=?");
             st.setString(1, userId);
             ResultSet rs = st.executeQuery();
@@ -288,7 +294,7 @@ public class DBManager
         ArrayList<SurveyRequest> approvedRequests = null;                           // at ALL levels. This is displayed to the SENDER only.
         try
         {
-            Connection con = DriverManager.getConnection(DBURL, DBUSER, DBPASSWORD);
+            Connection con = DriverManager.getConnection(dbUrl, dbUser, dbPassword);
             PreparedStatement st = con.prepareStatement("SELECT * FROM request"
                     + " WHERE userid=? AND is_level3_approved=true");
             st.setString(1, userId);
@@ -324,7 +330,7 @@ public class DBManager
         ArrayList<SurveyRequest> approverHistory = null;
         try
         {
-            Connection con = DriverManager.getConnection(DBURL, DBUSER, DBPASSWORD);
+            Connection con = DriverManager.getConnection(dbUrl, dbUser, dbPassword);
             
             String approverId;
             if(role.equalsIgnoreCase("approver1"))
@@ -370,7 +376,7 @@ public class DBManager
         ArrayList<SurveyRequest> requestList = null;
         try
         {
-            Connection con = DriverManager.getConnection(DBURL, DBUSER, DBPASSWORD);
+            Connection con = DriverManager.getConnection(dbUrl, dbUser, dbPassword);
             PreparedStatement st = con.prepareStatement("SELECT * FROM request WHERE is_level3_approved=true"
                     + " AND is_dispatched=false");            
             ResultSet rs = st.executeQuery();
@@ -399,7 +405,7 @@ public class DBManager
         boolean flag = false;
         try
         {
-            Connection con = DriverManager.getConnection(DBURL, DBUSER, DBPASSWORD);
+            Connection con = DriverManager.getConnection(dbUrl, dbUser, dbPassword);
             PreparedStatement st = con.prepareStatement("UPDATE request SET is_dispatched=true,"
                     + " courier_id=?, date_dispatched=?, status='APPROVED (Data dispatched)'"
                     + " WHERE request_id=?");
@@ -425,7 +431,7 @@ public class DBManager
         boolean flag = false;
         try
         {
-            Connection con = DriverManager.getConnection(DBURL, DBUSER, DBPASSWORD);
+            Connection con = DriverManager.getConnection(dbUrl, dbUser, dbPassword);
             PreparedStatement st = con.prepareStatement("INSERT INTO employee VALUES (?,?,?,?,?,?,?,?,?)");
             st.setString(1, userId);
             st.setString(2, password);
@@ -452,7 +458,7 @@ public class DBManager
         boolean flag = false;
         try
         {
-            Connection con = DriverManager.getConnection(DBURL, DBUSER, DBPASSWORD);
+            Connection con = DriverManager.getConnection(dbUrl, dbUser, dbPassword);
             PreparedStatement st = con.prepareStatement("DELETE FROM employee where userid=?");
             st.setString(1, userId);
             st.executeUpdate();
@@ -472,7 +478,7 @@ public class DBManager
         boolean flag = false;
         try
         {
-            Connection con = DriverManager.getConnection(DBURL, DBUSER, DBPASSWORD);
+            Connection con = DriverManager.getConnection(dbUrl, dbUser, dbPassword);
             PreparedStatement st = con.prepareStatement("UPDATE employee SET firstname=?, midname=?, surname=?, "
                     + "phone=?, designation=?, location=?, role=? WHERE userid=?");
             

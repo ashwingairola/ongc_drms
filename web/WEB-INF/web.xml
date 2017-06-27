@@ -1,24 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app version="3.1" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd">
+    <listener>
+        <description>ServletContextListener</description>
+        <listener-class>com.ongcdrms.DatabaseContextListener</listener-class>
+    </listener>
     <servlet>
         <servlet-name>LogoutServlet</servlet-name>
-        <servlet-class>LogoutServlet</servlet-class>
+        <servlet-class>com.ongcdrms.LogoutServlet</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>DispatchRequestServlet</servlet-name>
-        <servlet-class>DispatchRequestServlet</servlet-class>
+        <servlet-class>com.ongcdrms.DispatchRequestServlet</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>AdminServlet</servlet-name>
-        <servlet-class>AdminServlet</servlet-class>
+        <servlet-class>com.ongcdrms.AdminServlet</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>LoginRedirectServlet</servlet-name>
-        <servlet-class>LoginRedirectServlet</servlet-class>
+        <servlet-class>com.ongcdrms.LoginRedirectServlet</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>RedirectServlet</servlet-name>
-        <servlet-class>RedirectServlet</servlet-class>
+        <servlet-class>com.ongcdrms.RedirectServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>LogoutServlet</servlet-name>
@@ -42,7 +46,20 @@
     </servlet-mapping>
     <session-config>
         <session-timeout>
-            30
+            1440
         </session-timeout>
     </session-config>
+    <!-- VERY IMPORTANT! The following Context Init Parameters are the credentials for the MySQL database. -->
+    <context-param>
+        <param-name>dbUrl</param-name>
+        <param-value>jdbc:mysql://localhost:3306/ongc_drms</param-value>
+    </context-param>
+    <context-param>
+        <param-name>dbUser</param-name>
+        <param-value>root</param-value>
+    </context-param>
+    <context-param>
+        <param-name>dbPassword</param-name>
+        <param-value>password</param-value>
+    </context-param>
 </web-app>
