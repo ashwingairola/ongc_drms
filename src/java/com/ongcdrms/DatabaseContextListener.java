@@ -11,7 +11,7 @@ import javax.servlet.ServletContextListener;
  */
 public class DatabaseContextListener implements ServletContextListener
 {
-    public static String dbUrl, dbUser, dbPassword;
+    private static String dbUrl, dbUser, dbPassword;
     
     @Override
     public void contextInitialized(ServletContextEvent sce)
@@ -25,5 +25,20 @@ public class DatabaseContextListener implements ServletContextListener
     @Override
     public void contextDestroyed(ServletContextEvent sce) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+    
+    public static String getDbUrl()
+    {
+        return dbUrl;
+    }
+    
+    public static String getDbUser()
+    {
+        return dbUser;
+    }
+    
+    public static String getDbPassword()
+    {
+        return dbPassword;
     }
 }

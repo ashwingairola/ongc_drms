@@ -13,9 +13,9 @@ public class DBManager
         try
         {
             Class.forName("com.mysql.jdbc.Driver");
-            dbUrl = DatabaseContextListener.dbUrl;
-            dbUser = DatabaseContextListener.dbUser;
-            dbPassword = DatabaseContextListener.dbPassword;
+            dbUrl = DatabaseContextListener.getDbUrl();
+            dbUser = DatabaseContextListener.getDbUser();
+            dbPassword = DatabaseContextListener.getDbPassword();
         }
         catch(Exception e)
         {
