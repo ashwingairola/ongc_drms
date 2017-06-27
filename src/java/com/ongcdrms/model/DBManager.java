@@ -257,7 +257,7 @@ public class DBManager
         try
         {
             Connection con = DriverManager.getConnection(dbUrl, dbUser, dbPassword);
-            PreparedStatement st = con.prepareStatement("SELECT * FROM request WHERE userid=?");
+            PreparedStatement st = con.prepareStatement("SELECT * FROM request WHERE userid=? ORDER BY date_issued DESC");
             st.setString(1, userId);
             ResultSet rs = st.executeQuery();
             history = new ArrayList<>();
@@ -292,7 +292,7 @@ public class DBManager
         {
             Connection con = DriverManager.getConnection(dbUrl, dbUser, dbPassword);
             PreparedStatement st = con.prepareStatement("SELECT * FROM request"
-                    + " WHERE userid=? AND is_level3_approved=true");
+                    + " WHERE userid=? AND is_level3_approved=true ORDER BY date_issued DESC");
             st.setString(1, userId);
             ResultSet rs = st.executeQuery();
             approvedRequests = new ArrayList<>();
@@ -336,7 +336,7 @@ public class DBManager
             else
                 approverId = "approver3_id";
             
-            String sql = "SELECT * FROM request WHERE " + approverId + "=" + userId;
+            String sql = "SELECT * FROM request WHERE " + approverId + "=" + userId+" ORDER BY date_issued DESC";
             Statement st = con.createStatement();
             ResultSet rs = st.executeQuery(sql);
             approverHistory = new ArrayList<>();
