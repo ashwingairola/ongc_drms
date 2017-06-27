@@ -28,10 +28,6 @@
                 padding: 0;
             }
             
-            label {
-                display: block;
-            }
-            
             .request {
                 background-color: yellowgreen;
                 padding: 10px;
@@ -55,14 +51,26 @@
                 <c:set var="userId" value="${user.userId}"/>
                 <c:set var="history" value="${dbFunctions:getApprovedRequests(userId)}"/>
                 <c:forEach var="surveyRequest" items="${history}">
+                    <c:choose>
+                        <c:when test="${surveyRequest.dateIssued eq null or surveyRequest.courierId eq null}">
+                            <c:set var="dateDispatched" value="Yet to be dispatched" />
+                            <c:set var="courierId" value="Yet to be dispatched" />
+                        </c:when>
+                        <c:otherwise>
+                            <c:set var="dateDispatched" value="${surveyRequest.dateDispatched}" />
+                            <c:set var="courierId" value="${surveyRequest.courierId}" />
+                        </c:otherwise>
+                    </c:choose>
                     <li class="request">
                         <section>
-                            <label>Request ID: ${surveyRequest.requestId}</label>
-                            <label>User ID: ${surveyRequest.userId}</label>
-                            <label>Request for: ${surveyRequest.requestList}</label>
-                            <label>Location of Generation: ${surveyRequest.location}</label>
-                            <label>Date Issued: ${surveyRequest.dateIssued}</label>
-                            <label>Status: ${surveyRequest.status}</label>
+                            <b>Request ID:</b> <label>${surveyRequest.requestId}</label><br>
+                            <b>User ID:</b> <label>${surveyRequest.userId}</label><br>
+                            <b>Request for:</b> <label>${surveyRequest.requestList}</label><br>
+                            <b>Location of Generation:</b> <label>${surveyRequest.location}</label><br>
+                            <b>Date Issued:</b> <label>${surveyRequest.dateIssued}</label><br>
+                            <b>Courier ID:</b> <label>${courierId}</label><br>
+                            <b>Date Dispatched:</b> <label>${dateDispatched}</label><br>
+                            <b>Status:</b> <label>${surveyRequest.status}</label>
                         </section>
                     </li>
                 </c:forEach>

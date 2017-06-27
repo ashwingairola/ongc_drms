@@ -309,6 +309,8 @@ public class DBManager
                 surveyRequest.setRejected(rs.getBoolean("is_rejected"));
                 surveyRequest.setDateIssued(rs.getDate("date_issued"));
                 surveyRequest.setDateApproved3(rs.getDate("date_approved3"));
+                surveyRequest.setCourierId(rs.getString("courier_id"));
+                surveyRequest.setDateDispatched(rs.getDate("date_dispatched"));
                 surveyRequest.setStatus(rs.getString("status"));
                 approvedRequests.add(surveyRequest);
             }
